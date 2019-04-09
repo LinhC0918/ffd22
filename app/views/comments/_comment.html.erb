@@ -1,0 +1,32 @@
+<div class="card-header">
+  <%= t ".product_reviews" %>
+  <p class="float-right"><%= t("comments.comment",
+    count: comments.size) %></p>
+</div>
+<div class="card-body">
+  <% comments.each do |comment| %>
+    <div class="comment_<%= comment.id %>">
+
+    <% if current_user.present? && current_user.id == comment.user_id %>
+        <%= button_to t(".delete"), comment, method: :delete, remote: true,
+          data: {confirm: t(".confirm")},
+          class: "float-right btn btn-outline-danger btn-sm" %>
+        <%= button_to t(".edit"), edit_comment_path(comment), remote: true,
+          class: "float-right btn btn-outline-primary btn-sm" %>
+      <% end %>
+
+      <% comment.rating.times do %>
+        <span class="text-warning">&#9733;</span>
+      <% end %>
+      <% blank_star(comment.rating).times do %>
+        <span class="text-warning">&#9734;</span>
+      <% end %>
+      <p><%= comment.content %></p>
+      <small class="text-muted">
+        <%= t ".posted_by" %> <%= comment.user.name %> <%= t ".on" %>
+        <%= I18n.l comment.created_at, format: :created_at %>
+      </small>
+    </div>
+    <hr>
+  <% end %>
+</div>

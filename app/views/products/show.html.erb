@@ -17,9 +17,30 @@
       <p class="card-text mt-3">
         <%= @product.information %>
       </p>
-      <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-      4.0 stars
+      <% if @product.comments.present? %>
+        <% average_rating(@product).times do %>
+          <span class="text-warning">&#9733;</span>
+        <% end %>
+        <% blank_star(average_rating(@product)).times do %>
+          <span class="text-warning">&#9734;</span>
+        <% end %>
+        <%= t("products.show", count: average_rating(@product)) %>
+      <% end %>
+    </div>
+    <div class="card-footer form_comment">
+      <%= render "comments/form", product_id: @product.id %>
     </div>
   </div>
-
+  <div id="comments" class="card card-outline-secondary my-4">
+    <% if @product.comments.blank? %>
+      <div class="card-header">
+        <%= t ".product_reviews" %>
+      </div>
+      <div class="card-body">
+        <p><%= t ".no_comment" %></p>
+      </div>
+    <% else %>
+      <%= render "comments/comment", comments: load_comments(@product) %>
+    <% end %>
+  </div>
 </div>

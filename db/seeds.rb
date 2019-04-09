@@ -81,3 +81,21 @@ end
     category_id: 2
   )
 end
+
+3.times do
+  Comment.create!(
+    content: Faker::Lorem.sentence(5),
+    rating: Faker::Number.between(1, 5),
+    user_id: 1,
+    product_id: 1
+  )
+end
+
+3.times do
+  Comment.create!(
+    content: Faker::Lorem.sentence(5),
+    rating: Faker::Number.between(1, 5),
+    user_id: 2,
+    product_id: 2
+  )
+end

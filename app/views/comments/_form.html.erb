@@ -1,0 +1,33 @@
+<%= form_for(@comment, remote: true) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.text_area :content, rows: 2, class: "form-control",
+    placeholder: t(".write_comment") %>
+
+  <div class="row">
+    <div class="starrating risingstar d-flex justify-content-center
+      flex-row-reverse">
+      <%= f.radio_button :rating, 5 %>
+      <%= f.label :rating, t(".comment_label_html"),
+        for: "comment_rating_5" %>
+      <%= f.radio_button :rating, 4 %>
+      <%= f.label :rating, t(".comment_label_html"),
+        for: "comment_rating_4" %>
+      <%= f.radio_button :rating, 3 %>
+      <%= f.label :rating, t(".comment_label_html"),
+        for: "comment_rating_3" %>
+      <%= f.radio_button :rating, 2 %>
+      <%= f.label :rating, t(".comment_label_html"),
+        for: "comment_rating_2" %>
+      <%= f.radio_button :rating, 1 %>
+      <%= f.label :rating, t(".comment_label_html"),
+        for: "comment_rating_1" %>
+    </div>
+  </div>
+  <% if current_user.present? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% end %>
+  <%= f.hidden_field :product_id, value: product_id %>
+
+  <%= f.submit t(".add_comment"), class: "btn btn-sm btn-primary" %>
+<% end %>

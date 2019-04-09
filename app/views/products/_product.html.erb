@@ -16,7 +16,17 @@
       </p>
     </div>
     <div class="card-footer">
-      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+      <small class="text-muted">
+        <% if product.comments.present? %>
+          <% average_rating(product).times do %>
+            <span class="text-warning">&#9733;</span>
+          <% end %>
+          <% blank_star(average_rating(product)).times do %>
+            <span class="text-warning">&#9734;</span>
+          <% end %>
+          <%= t("products.product", count: average_rating(product)) %>
+        <% end %>
+      </small>
       <% if logged_in? %>
         <% if current_user.admin? %>
           <%= link_to t("edit"), edit_product_path(product),

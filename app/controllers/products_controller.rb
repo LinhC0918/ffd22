@@ -3,15 +3,19 @@ class ProductsController < ApplicationController
     only: %i(new create edit update destroy)
   before_action :load_product, except: %i(create new index)
 
-  def show; end
-
   def index
-    @products = Product.order_desc.paginate page: params[:page],
-      per_page: Settings.per_page.products
+    @products = Product.order_desc
+      .paginate page: params[:page], per_page: Settings.per_page.products
   end
 
   def new
     @product = Product.new
+  end
+
+  def show
+    @comment = Comment.new
+    @comments = @product.comments.order(created_at: :desc)
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def create

@@ -4,9 +4,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.includes(:children).find_parent_id.order(:name)
-                          .paginate(
-                            page: params[:page], per_page: Settings.per_page
-                          )
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new

@@ -84,3 +84,26 @@ footer ul li {
     border-bottom: 0.5px solid $gray-200;
   }
 }
+
+/* Rating */
+.starrating > input {display: none;}  /* Remove radio buttons */
+
+.starrating > label:before {
+  content: "★"; /* Star */
+  margin: 2px;
+  font-size: 3em;
+  font-family: FontAwesome;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.starrating > label
+{
+  color: gray; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label
+{ color: gold; } /* Set yellow color when star checked */
+
+.starrating > input:hover ~ label
+{ color: gold;  } /* Set yellow color when star hover */

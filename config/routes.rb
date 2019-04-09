@@ -17,5 +17,7 @@ Rails.application.routes.draw do
     resources :users, :products, :categories
     resources :account_activations, only: :edit
     resources :password_resets, except: %i(index destroy show)
+    resources :comments, only: %i(create update destroy)
+    post "comments/:id/edit", to: "comments#edit", as: "edit_comment"
   end
 end

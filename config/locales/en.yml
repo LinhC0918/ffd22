@@ -142,6 +142,10 @@ en:
   products:
     show:
       quantity: "Quantity"
+      product_reviews: "Product Reviews"
+      no_comment: "This product has no comments."
+      one: "1 star"
+      other: "%{count} stars"
     new:
       create_product: "Create Product"
       name: "Name"
@@ -162,6 +166,8 @@ en:
       product_delete_failed: "Delete product failed"
     product:
       add_to_cart: "Add to Cart"
+      one: "1 star"
+      other: "%{count} stars"
   application:
     logged_in_user:
       please_log_in: "Please log in."
@@ -220,3 +226,25 @@ en:
     destroy:
       destroy_success: "Category deleted"
       destroy_failed: "Delete failed"
+  time:
+    formats:
+      created_at: "%Y-%m-%d"
+  comments:
+    form:
+      write_comment: "write comment..."
+      comment_label_html: "<span>&nbsp;</span>"
+      add_comment: "Add Comment"
+    comment:
+      product_reviews: "Product Reviews"
+      confirm: "You sure?"
+      posted_by: "Posted by"
+      "on": "on"
+      delete: "Delete"
+      edit: "Edit"
+      one: "1 comment"
+      other: "%{count} comments"
+    form_edit:
+      comment_label_html: "<span>&nbsp;</span>"
+      save_changes: "Save Changes"
+    destroy:
+      delete_failed: "Delete failed"
