@@ -1,2 +1,2 @@
-$(".shopping-cart").html("<%= escape_javascript(render 'carts/shopping_cart') %>")
-$(".cart-text").html('<%= @cart_products.size %>');
+$('.shopping-cart').html('<%= j render 'carts/shopping_cart' %>')
+$('.cart-text').html('<%= @cart_products.size %>');

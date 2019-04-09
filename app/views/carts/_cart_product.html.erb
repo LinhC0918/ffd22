@@ -30,7 +30,7 @@
             <i class="fa fa-edit"></i>
           <% end %>
 
-          <%= link_to carts_destroy_path(product_id: product.id ),
+          <%= link_to carts_destroy_path(product_id: product.id),
             method: :delete, data: {confirm: t("you_sure")}, remote: true,
             class: "btn btn-danger" do %>
             <i class="fa fa-trash-o"></i>

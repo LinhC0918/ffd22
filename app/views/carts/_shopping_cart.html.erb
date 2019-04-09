@@ -13,9 +13,11 @@
     <% end %>
   </div>
   <div class="card-footer text-right">
+    <%= link_to t(".order"), orders_path, method: :post,
+        class: "btn btn-danger float-left" %>
     <%= t(".total") %>
     <span class="total-price">
-      <%= number_to_currency calculate_total_price @cart_products %>
+      <%= number_to_currency calculate_total_price %>
     </span>
   </div>
 </div>

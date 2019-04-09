@@ -1,0 +1,26 @@
+<% product = find_product order_product.product_id %>
+<div class="row">
+  <% if product.present? %>
+    <div class="col-12 col-sm-12 col-md-2 text-center">
+      <%= image_tag product.image.url, size: "153x128",
+        class: "img-responsive" %>
+    </div>
+    <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+        <h4 class="product-name">
+          <strong><%= link_to product.name, product %></strong>
+        </h4>
+        <h4>
+            <small><%= truncate_info product.information %></small>
+        </h4>
+    </div>
+    <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+      <div class="col-4 col-sm-4 col-md-6 text-md-right pt-2">
+        <h6><strong><%= number_to_currency order_product.price %></strong></h6>
+      </div>
+      <div class="col-4 col-sm-4 col-md-4 pt-2">
+        <h6><strong><%= order_product.quantity %></strong></h6>
+      </div>
+    </div>
+  <% end %>
+</div>
+<hr>

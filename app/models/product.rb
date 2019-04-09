@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :category
+  has_many :order_products, dependent: :destroy
   mount_uploader :image, ImageUploader
   validates :name, presence: true,
     length: {
