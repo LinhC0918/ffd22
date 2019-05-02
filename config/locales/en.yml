@@ -41,6 +41,7 @@ en:
       profile: "Profile"
       settings: "Settings"
       log_out: "Log out"
+      suggestions: "Suggestions"
     footer:
       about: "About"
       contact: "Contact"
@@ -249,3 +250,31 @@ en:
       save_changes: "Save Changes"
     destroy:
       delete_failed: "Delete failed"
+  suggestions:
+    new:
+      title: "New Suggestion"
+      heading: "New Suggestion"
+      add_suggestion: "Add Suggestion"
+    form:
+      p: "You can suggest more foods or drinks to admin"
+      name: "Name"
+      food: "Food"
+      drink: "Drink"
+      write_message: "Write a message..."
+    create:
+      message: "Thank you for suggestion!"
+    show:
+      title: "Suggestion"
+      delete: "Delete"
+      confirm: "You sure?"
+      name: "Name"
+      classify: "Classify"
+      message: "Message"
+      suggestion_from: "Suggestion from "
+      food: "Food"
+      drink: "Drink"
+    load_suggestion:
+      suggestion_not_found: "Suggestion not found"
+    destroy:
+      destroy_success: "Destroy Success"
+      destroy_failed: "Destroy Failed"

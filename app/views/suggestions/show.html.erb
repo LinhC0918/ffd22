@@ -1,0 +1,22 @@
+<% provide(:title, t(".title")) %>
+<div class="row">
+  <aside class="col-md">
+    <section class="user_info jumbotron">
+      <h1 class="text-center">
+        <%= t ".suggestion_from" %><%= @suggestion.user.name %>
+        </h1>
+      <p><%= link_to t(".delete"), @suggestion, method: :delete,
+      data: { confirm: t(".confirm") }, class: "btn btn-danger" %></p>
+      <b><%= t ".name" %></b>
+      <p><%= @suggestion.name %></p>
+      <b><%= t ".classify" %></b>
+      <% if @suggestion.classify %>
+        <p><%= t ".food" %></p>
+      <% else %>
+        <p><%= t ".drink" %></p>
+      <% end %>
+      <b><%= t ".message" %></b>
+      <p><%= @suggestion.message %></p>
+    </section>
+  </aside>
+</div>

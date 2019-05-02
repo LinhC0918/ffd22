@@ -18,13 +18,14 @@
         <%= @product.information %>
       </p>
       <% if @product.comments.present? %>
-        <% average_rating(@product).times do %>
+        <% @product.comments.average(:rating).ceil.times do %>
           <span class="text-warning">&#9733;</span>
         <% end %>
-        <% blank_star(average_rating(@product)).times do %>
+        <% blank_star(@product.comments.average(:rating).ceil).times do %>
           <span class="text-warning">&#9734;</span>
         <% end %>
-        <%= t("products.show", count: average_rating(@product)) %>
+        <%= t("products.show",
+          count: @product.comments.average(:rating).ceil) %>
       <% end %>
     </div>
     <div class="card-footer form_comment">

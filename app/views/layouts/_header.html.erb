@@ -32,10 +32,17 @@
             </li>
 
             <li class="nav-item">
-            <%= link_to t(".users"), users_path, class: "nav-link" %>
-          </li>
-          <% end %>
+              <%= link_to t(".users"), users_path, class: "nav-link" %>
+            </li>
 
+            <li class="nav-item">
+              <%= link_to t(".suggestions"), suggestions_path, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to t(".suggestions"), new_suggestion_path, class: "nav-link" %>
+            </li>
+          <% end %>
 
           <li class="nav-item dropdown">
             <%= link_to "#", class: "nav-link dropdown-toggle",
