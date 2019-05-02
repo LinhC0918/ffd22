@@ -1,0 +1,16 @@
+<% provide(:title, t(".title")) %>
+<h1 class="text-center"><%= t ".heading" %></h1>
+
+<%= will_paginate(@suggestions,
+  renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+
+<ul class="users">
+  <% if @suggestions.present? %>
+    <%= render @suggestions %>
+  <% else %>
+    <p>There are no suggestions</p>
+  <% end %>
+</ul>
+
+<%= will_paginate(@suggestions,
+  renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>

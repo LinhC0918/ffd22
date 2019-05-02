@@ -7,10 +7,9 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.text :image
       t.boolean :classify
       t.integer :quantity
-      t.references :category, foreign_key: true
 
       t.timestamps
     end
-    add_index :products, [:category_id, :created_at]
+    add_index :products, [:created_at]
   end
 end

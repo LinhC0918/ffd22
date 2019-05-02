@@ -3,7 +3,7 @@
 
   <div class="card mt-4">
     <%= image_tag(@product.image.url,
-      class: "card-img-top img-fluid") if @product.image? %>
+      class: "card-img-top", size: "200x500") if @product.image? %>
     <div class="card-body">
       <h3 class="card-title">
         <%= @product.name %>
@@ -14,17 +14,28 @@
       <span class="badge badge-primary p-2">
         <%= t ".quantity" %>: <%= @product.quantity %>
       </span>
+      <span class="badge badge-info p-2">
+        <% if @product.classify %>
+          Food
+        <% else %>
+          Drink
+        <% end %>
+      </span>
+      <span class="badge badge-info p-2">
+        <%= @product.category.name %>
+      </span>
       <p class="card-text mt-3">
         <%= @product.information %>
       </p>
       <% if @product.comments.present? %>
-        <% average_rating(@product).times do %>
+        <% @product.comments.average(:rating).ceil.times do %>
           <span class="text-warning">&#9733;</span>
         <% end %>
-        <% blank_star(average_rating(@product)).times do %>
+        <% blank_star(@product.comments.average(:rating).ceil).times do %>
           <span class="text-warning">&#9734;</span>
         <% end %>
-        <%= t("products.show", count: average_rating(@product)) %>
+        <%= t("products.show",
+          count: @product.comments.average(:rating).ceil) %>
       <% end %>
     </div>
     <div class="card-footer form_comment">

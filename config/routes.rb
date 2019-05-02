@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     delete "carts/destroy"
     post "carts/update"
 
-    resources :users, :products, :categories
+    resources :users, :products, :categories, :suggestions
     resources :account_activations, only: :edit
     resources :password_resets, except: %i(index destroy show)
     resources :comments, only: %i(create update destroy)

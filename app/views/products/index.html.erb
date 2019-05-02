@@ -1,7 +1,6 @@
 <% provide(:title, t(".heading")) %>
-<h1 class="text-center"><%= t ".heading" %></h1>
 
-<div class="col-lg-9">
+<div class="col-lg">
   <div>
     <%= link_to t("add"), new_product_path,
       class: "btn btn-success" if logged_in? && current_user.admin? %>

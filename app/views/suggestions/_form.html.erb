@@ -1,0 +1,16 @@
+<%= form_for(@suggestion) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <p><%= t ".p" %></p>
+  <%= f.text_field :name, class: "form-control", placeholder: t(".name") %>
+
+  <%= f.select(:classify, options = [[t(".food"), true],
+  [t(".drink"), false]], {selected: true}, {class: "form-control"}) %>
+
+  <%= f.text_area :message, class: "form-control",
+    placeholder: t(".write_message") %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.submit yield(:button), class: "btn btn-primary btn-block" %>
+<% end %>
