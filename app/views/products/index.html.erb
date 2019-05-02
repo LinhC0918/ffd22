@@ -7,11 +7,47 @@
       class: "btn btn-success" if logged_in? && current_user.admin? %>
   </div>
 
-  <% if @products.present? %>
-    <%= will_paginate(@products,
-      renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+  <div class="dropdown-divider"></div>
 
+  <%= form_tag(:products, method: :get) do %>
     <div class="row">
+      <div class="col-md-3">
+        <%= select_tag :classify, options_for_select([[t("food"), true],
+          [t("drink"), false]], selected: params[:classify]),
+          include_blank: t("choose_classify"), class: "form-control" %>
+      </div>
+
+      <div class="col-md-3">
+        <%= select_tag :category_id, options_for_select(collect_categories,
+          selected: params[:category_id]), include_blank: t("choose_category"),
+          class: "form-control" %>
+      </div>
+
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col">
+            <%= number_field_tag :price_min, params[:price_min],
+              min: Settings.filter.minimum_price, class: "form-control",
+              placeholder: t(".min") %>
+          </div>
+          <div class="col">
+            <%= number_field_tag :price_max, params[:price_max],
+              min: Settings.filter.minimum_price, class: "form-control",
+              placeholder: t(".max") %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <%= submit_tag t("filter"), class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="dropdown-divider"></div>
+
+  <% if @products.present? %>
+    <div id="products_div" class="row">
       <%= render @products %>
     </div>
 

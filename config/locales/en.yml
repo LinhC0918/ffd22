@@ -16,6 +16,7 @@ en:
   delete: "Delete"
   you_sure: "You sure?"
   cart: "Cart"
+  filter: "Filter"
   static_pages:
     home:
       title: "Home"
@@ -160,6 +161,11 @@ en:
       edit_product: "Edit Product"
     index:
       heading: "Products"
+      choose_classify: "Choose Classify"
+      choose_category: "Choose Category"
+      min: "Minimum"
+      max: "Maximum"
+      no_product: "There are no products"
     update:
       product_updated: "Product updated"
     destroy:

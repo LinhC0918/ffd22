@@ -27,3 +27,5 @@ carts:
   minimum_quantity: 1
   default_quantity: 1
   no_product: 0
+filter:
+  minimum_price: "0"
