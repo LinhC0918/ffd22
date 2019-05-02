@@ -55,6 +55,6 @@ class CommentsController < ApplicationController
 
   def load_comment_product
     @comment_product = Comment.includes(:product).find_comments(@comment)
-      .order_comments
+                              .order_comments
   end
 end
