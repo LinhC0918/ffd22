@@ -26,6 +26,7 @@
           <% end %>
           <%= t("products.product",
             count: product.comments.average(:rating).ceil) %>
+          <div class="dropdown-divider"></div>
         <% end %>
       </small>
 

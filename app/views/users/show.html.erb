@@ -1,8 +1,8 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md">
-    <section class="user_info jumbotron">
-      <h1 class="text-center"><%= @user.name %></h1>
+    <section class="user_info jumbotron text-left">
+      <h1><%= @user.name %></h1>
       <b><%= t ".email" %></b><p><%= @user.email %></p>
       <b><%= t ".phone" %></b><p><%= @user.phone %></p>
     </section>
