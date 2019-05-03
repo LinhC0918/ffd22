@@ -43,6 +43,7 @@ class OrdersController < ApplicationController
 
   def update
     @order.update_attributes status: params[:order][:status].to_i
+    @order.send_order_status_email
   end
 
   def destroy
