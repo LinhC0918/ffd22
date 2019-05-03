@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :load_category, only: %i(edit update destroy)
+  before_action :load_category, only: %i(edit update destroy show)
   before_action :logged_in_user, :admin_user
 
   def index
@@ -11,6 +11,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+  end
+
+  def show
+    @products = Product.where(category_id: params[:id])
+                       .paginate(page: params[:page],
+                         per_page: Settings.per_page)
   end
 
   def create

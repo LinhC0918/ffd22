@@ -1,0 +1,28 @@
+<% provide(:title, t(".title")) %>
+<h1 class="text-center"><%= t ".title" %></h1>
+
+<% if @orders.present? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Order id</th>
+        <th scope="col">Day create</th>
+        <th scope="col">Products</th>
+        <th scope="col">Total price</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div id="orders">
+        <%= render @orders %>
+      </div>
+    </tbody>
+  </table>
+<% else %>
+  <div class="jumbotron text-center">
+    <%= t ".no_order" %>
+  </div>
+<% end %>
+
+<%= will_paginate(@orders,
+  renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>

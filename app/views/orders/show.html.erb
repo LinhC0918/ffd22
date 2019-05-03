@@ -1,0 +1,19 @@
+<% provide(:title, t(".my_order")) %>
+
+<div class="card order">
+  <div class="card-header bg-dark text-light">
+    <%= t ".my_order" %>#<%= @order.id %>
+    <div class="clearfix"></div>
+  </div>
+  <div class="card-body">
+    <%= render partial: "order_product", collection: @order_products %>
+  </div>
+  <div class="card-footer text-right">
+    <%= link_to t(".cancel_order"), @order, method: :delete,
+        class: "btn btn-danger float-left" %>
+    <%= t(".total") %>
+    <span class="total-price">
+      <%= number_to_currency @order.total_price %>
+    </span>
+  </div>
+</div>

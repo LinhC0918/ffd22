@@ -38,8 +38,10 @@ en:
       categories: "Categories"
       log_in: "Log in"
       users: "Users"
+      orders: "Orders"
       account: "Account"
       profile: "Profile"
+      my_order: "My Order"
       settings: "Settings"
       log_out: "Log out"
       suggestions: "Suggestions"
@@ -166,6 +168,7 @@ en:
       min: "Minimum"
       max: "Maximum"
       no_product: "There are no products"
+      categories: "Categories"
     update:
       product_updated: "Product updated"
     destroy:
@@ -184,8 +187,22 @@ en:
       no_item: "There are no items in your shopping cart."
     shopping_cart:
       total: "Total: "
+      order: "Order"
     cart_product:
       you_sure: "Are you sure?"
+  orders:
+    show:
+      my_order: "My order: "
+      total: "Total: "
+      cancel_order: "Cancel Order"
+    index:
+      title: "My Orders"
+      no_order: "No Order"
+    controllers:
+      order_not_found: "This order not found"
+      order_deleted: "Order Deleted"
+      can_not_delete: "Can not delete"
+      order_created: "Order Created"
   controllers:
     products:
       product_not_found: "Product not found"
@@ -202,8 +219,7 @@ en:
       logged_in_user:
         please_log_in: "Please log in."
     carts:
-      product_not_found: "Product not found"
-      must_greater_1: "Quantity must greater than 1"
+      have_error: "Have error. Try again!"
   categories:
     new:
       title: "Categories"
@@ -213,6 +229,8 @@ en:
       title: "Categories"
       heading: "Categories"
       add: "Add"
+    show:
+      products: "Products"
     category:
       add: "Add"
       edit: "Edit"

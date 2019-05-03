@@ -1,6 +1,6 @@
 <% provide(:title, t(".heading")) %>
 
-<div class="col-lg">
+<div class="col-md">
   <div>
     <%= link_to t("add"), new_product_path,
       class: "btn btn-success" if logged_in? && current_user.admin? %>
@@ -18,8 +18,8 @@
 
       <div class="col-md-3">
         <%= select_tag :category_id, options_for_select(collect_categories,
-          selected: params[:category_id]), include_blank: t("choose_category"),
-          class: "form-control" %>
+          selected: params[:category_id]),
+          include_blank: t("choose_category"), class: "form-control" %>
       </div>
 
       <div class="col-md-4">

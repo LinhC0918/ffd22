@@ -1,0 +1,37 @@
+<% if order.present? %>
+  <tr>
+    <th scope="row">
+      <%= link_to order.id, order %>
+    </th>
+    <td>
+      <%= order.created_at %>
+    </td>
+    <td>
+      <% @order_products = order.order_products %>
+      <%= render @order_products %>
+    </td>
+    <td>
+      <%= number_to_currency order.total_price %>
+    </td>
+    <td>
+      <% if admin_user? %>
+        <%= form_for order do |f| %>
+          <div class="pb-3">
+            <%= f.select(:status,  options = [["pending", 0],
+              ["approve", 1], ["cancelled", 2]],
+              {selected: order.status_before_type_cast}, class: "form-control") %>
+          </div>
+          <%= f.button class: "btn btn-primary" do %>
+            <i class="fa fa-edit"></i>
+          <% end %>
+          <%= link_to order, method: :delete, data: {confirm: t("you_sure")},
+            class: "btn btn-danger" do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= order.status %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

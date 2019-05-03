@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :suggestions, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
+  has_many :orders, dependent: :destroy
   before_save :downcase_email
   before_create :create_activation_digest
   validates :name, presence: true, length: {maximum: Settings.name.maximum}
